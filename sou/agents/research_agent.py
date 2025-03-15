@@ -1,6 +1,7 @@
 from tavily import TavilyClient
 from nano_graphrag import GraphRAG
 
+
 class ResearchAgent:
     """
     A research agent that can retrieve information from a language model

@@ -28,4 +28,3 @@ class GraphRAGAgent:
     def insert_data(self, data: str) -> None:
         print(f"[{self.name}] Inserting data into knowledge graph")
         self.kg.insert(data)
-
