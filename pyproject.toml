@@ -1,7 +1,7 @@
 [project]
 name = "sou"
 version = "0.0.1"
-description = "A short description of mypackage"
+description = ""
 authors = [
   { name="Yulin Shi", email="eliane.shiyulin@gmail.com" },
   { name="Baptiste Aubertin", email="bapt120@hotmail.fr" }

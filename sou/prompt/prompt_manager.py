@@ -1,5 +1,5 @@
 from typing import List, Dict, Any
-from prompt.prompts import (
+from sou.prompt.prompts import (
     get_singleqa_search_o1_instruction,
     get_multiqa_search_o1_instruction,
     get_math_search_o1_instruction,

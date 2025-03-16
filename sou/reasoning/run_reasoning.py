@@ -1,10 +1,10 @@
 # extract the research query and code query
-from utils.extract_pattern import extract_between, extract_boxed
-from agents.code_agent import CodeAgent
-from agents.graphrag_agent import GraphRAGAgent
-from agents.research_agent import ResearchAgent
-from script.run_generation import run_generation
-from config import (
+from sou.prompt.utils.extract_pattern import extract_between, extract_boxed
+from sou.agents.code_agent import CodeAgent
+from sou.agents.graphrag_agent import GraphRAGAgent
+from sou.agents.research_agent import ResearchAgent
+from sou.reasoning.run_generation import run_generation
+from sou.prompt.config import (
     BEGIN_SEARCH_QUERY,
     END_SEARCH_QUERY,
     BEGIN_CODE_QUERY,

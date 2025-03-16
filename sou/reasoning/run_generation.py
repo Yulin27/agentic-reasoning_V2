@@ -1,5 +1,5 @@
 from typing import List, Dict
-from config import (
+from sou.prompt.config import (
     BEGIN_SEARCH_QUERY,
     END_SEARCH_QUERY,
     BEGIN_CODE_QUERY,
@@ -14,6 +14,7 @@ from config import (
     END_MIND_MAP_RESULT,
 )
 import litellm
+
 
 def run_generation(
     prompt: str,
