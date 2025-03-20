@@ -1,12 +1,9 @@
 temp/
 output/
-<<<<<<< HEAD
 datas/
 
-=======
 
 .DS_Strore
->>>>>>> 889392d (add docker for code agent)
 local_mem/
 
 # Byte-compiled / optimized / DLL files

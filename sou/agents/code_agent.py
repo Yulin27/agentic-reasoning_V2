@@ -1,12 +1,15 @@
-import subprocess
-import litellm
 import os
+import subprocess
+
+import litellm
 
 
 class CodeAgent:
     """Agent that generates Python code from a given query using a Language Model and executes it safely in Docker."""
 
-    def __init__(self, model_name=None, api_key=None, docker_image_name="python_executor"):
+    def __init__(
+        self, model_name=None, api_key=None, docker_image_name="python_executor"
+    ):
         self.model_name = model_name
         self.api_key = api_key
         self.docker_image_name = docker_image_name
@@ -21,12 +24,20 @@ class CodeAgent:
 
         dockerfile_path = "temp/tools/Dockerfile"
         os.makedirs(os.path.dirname(dockerfile_path), exist_ok=True)
-        
+
         with open(dockerfile_path, "w") as file:
             file.write(dockerfile_content)
 
         subprocess.run(
-            ["docker", "build", "-t", self.docker_image_name, "-f", dockerfile_path, "temp/tools"],
+            [
+                "docker",
+                "build",
+                "-t",
+                self.docker_image_name,
+                "-f",
+                dockerfile_path,
+                "temp/tools",
+            ],
             check=True,
         )
 
@@ -44,12 +55,14 @@ class CodeAgent:
 
         result = response["choices"][0]["message"]["content"]
 
-
-
         if "```python" in result:
-            result = result[result.find("```python") + 9 : result.rfind("```")]  # extract python code
+            result = result[
+                result.find("```python") + 9 : result.rfind("```")
+            ]  # extract python code
         elif "```" in result:
-            result = result[result.find("```") + 3 : result.rfind("```")]  # extract general code
+            result = result[
+                result.find("```") + 3 : result.rfind("```")
+            ]  # extract general code
 
         path = "temp/tools/temp.py"
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -95,10 +108,5 @@ class CodeAgent:
 # code_agent = CodeAgent(model_name="gpt-3.5-turbo", api_key = os.environ["OPENAI_API_KEY"])
 # query = "Find the sum of all even numbers from 1 to 100."
 # context = "You are given a range of numbers from 1 to 100."
-<<<<<<< HEAD:sou/agents/code_agent.py
-# code = code_agent(query, context)
-# print(code)
-=======
 # output = code_agent(query, context)
 # print(output)
->>>>>>> 889392d (add docker for code agent):agents/code_agent.py
